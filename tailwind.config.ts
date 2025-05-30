@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
 	darkMode: ["class"],
@@ -53,21 +54,24 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+					DEFAULT: 'hsl(var(--secondary))', // Mapped to PRD sidebar color via --secondary CSS var
+					foreground: 'hsl(var(--secondary-foreground))' // Mapped to text on PRD sidebar via --secondary-foreground
+				},
+        accentYellow: 'hsl(var(--accent-yellow))',
+        accentGreen: 'hsl(var(--accent-green))',
+        chart1: 'hsl(var(--chart-1))',
+        chart2: 'hsl(var(--chart-2))',
+        chart3: 'hsl(var(--chart-3))',
+        chart4: 'hsl(var(--chart-4))'
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: 'var(--radius)', // 0.375rem (PRD default: rounded-md)
+				md: 'calc(var(--radius) - 2px)', // approx 0.25rem (PRD buttons: rounded)
+				sm: 'calc(var(--radius) - 4px)' // smaller: approx 0.125rem
 			},
+      fontFamily: {
+        sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
